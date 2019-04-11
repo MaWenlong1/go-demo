@@ -1,0 +1,17 @@
+{
+    "url": "http://localhost:8180/crm-server/rest/testbn01/couponservice/batchconsume",
+    "body": {
+        "xid": "111122",
+        "tran_no": "11111111",
+        "store_id": "9001",
+        "amount": 20,
+        "fav_amount": 10,
+        "consume_channel": "123",
+        "coupon_codes": [
+            "03440906170000000002",
+            "03400603250000000000",
+            "03411584500000000000",
+            "03451483510000000001"
+        ]
+    }
+}

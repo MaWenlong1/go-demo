@@ -1,0 +1,43 @@
+{
+    "url": "http://localhost:8180/crm-server/rest/testbn01/couponservice/consume2",
+    "body":{
+        "coupon_code": "03451483510000000001",
+        "store_id": "9999",
+        "tran": {
+          "pos_no": "1111111111",
+          "flow_no": "1111111111",
+          "tran_id": "1111111111",
+          "total": 30,
+          "goods_details": [
+            {
+              "item_no": "1111111111",
+              "code": "1111111111",
+              "name": "name",
+              "goods_id": "goods_id",
+              "barcode": "33333",
+              "brand_code": "1212",
+              "category_code": "st232ring",
+              "vendor": "2323",
+              "price": 10,
+              "qty": 2,
+              "amount": 30,
+              "qpc_str": "23423",
+              "counter_group_code": "2342",
+              "sku_department_code": "23423"
+            }
+          ],
+          "tran_no": "3243",
+          "coupons": [
+            {
+              "coupon_code": "03451483510000000002",
+              "items": [
+                {
+                  "item_no": "3232323",
+                  "amount": 10
+                }
+              ]
+            }
+          ]
+        }
+      }
+}
