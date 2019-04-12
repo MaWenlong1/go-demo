@@ -1,0 +1,3 @@
+package: mwl/redis
+import: 
+- package: github.com/garyburd/redigo/redis
