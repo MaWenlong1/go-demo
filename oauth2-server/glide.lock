@@ -1,0 +1,8 @@
+hash: 1d622fef1efe6f4f3e52eef73afd33259577bcc09ae2aa787f7840adc22fb6e0
+updated: 2019-04-11T23:47:15.294694+08:00
+imports:
+- name: github.com/RichardKnop/logging
+  version: b1d5d44c82d6c9fb6c8e8dad28412163586fd8ac
+- name: github.com/urfave/cli
+  version: cfb38830724cc34fedffe9a2a29fb54fa9169cd1
+testImports: []
