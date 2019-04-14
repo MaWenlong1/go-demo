@@ -2,13 +2,22 @@ package main
 
 import (
 	"fmt"
+	"mwl/goinaction/chapter7/patterns/runner"
 	"sync"
 )
+
+type user struct {
+	name string
+	age  int64
+}
 
 func main() {
 	var peo People = &Stduent{}
 	think := "bitch"
 	fmt.Println(peo.Speak(think))
+	var aa user
+	fmt.Println(aa.age)
+	runner.New(10)
 }
 
 type People interface {
