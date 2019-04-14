@@ -4,17 +4,17 @@ import "time"
 
 // MyGormModel 数据通用属性
 type MyGormModel struct {
-	ID       string `gorm:"primary_key"`
-	CreateAt time.Time
-	UpdateAt time.Time
-	DeleteAt *time.Time
+	ID        string `gorm:"primary_key"`
+	CreatedAt time.Time
+	UpdatedAt time.Time
+	DeletedAt *time.Time
 }
 
 // TimestampModel 时间，不带ID
 type TimestampModel struct {
-	CreateAt time.Time
-	UpdateAt time.Time
-	DeleteAt *time.Time
+	CreatedAt time.Time
+	UpdatedAt time.Time
+	DeletedAt *time.Time
 }
 
 // EmailTokenModel email

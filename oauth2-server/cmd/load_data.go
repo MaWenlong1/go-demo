@@ -1,9 +1,13 @@
 package cmd
 
-import "mwl/oauth2-server/log"
+import "github.com/RichardKnop/go-fixtures"
 
 // LoadData 加载数据
 func LoadData(paths []string, configFile string) error {
-	log.INFO.Println("load data", paths)
-	return nil
+	cfg, db, err := initConfigDB(configFile)
+	if err != nil {
+		return err
+	}
+	defer db.Close()
+	return fixtures.LoadFiles(paths, db.DB(), cfg.Database.Type)
 }

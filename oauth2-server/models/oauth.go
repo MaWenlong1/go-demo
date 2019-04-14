@@ -20,7 +20,7 @@ type OauthClient struct {
 
 // TableName 表名
 func (c *OauthClient) TableName() string {
-	return "oauth_clients"
+	return "oauth_client"
 }
 
 // OauthScope 认证的权限范围
@@ -111,15 +111,15 @@ type OauthAuthorizationCode struct {
 
 // TableName 表名
 func (rt *OauthAuthorizationCode) TableName() string {
-	return "Oauth_authorization_code"
+	return "oauth_authorization_code"
 }
 
 // NewOauthRefereshToken 创建一个新的刷新token
 func NewOauthRefereshToken(client *OauthClient, user *OauthClient, expiresIn int, scope string) *OauthRefereshToken {
 	refreshToken := &OauthRefereshToken{
 		MyGormModel: MyGormModel{
-			ID:       uuid.New(),
-			CreateAt: time.Now().UTC(),
+			ID:        uuid.New(),
+			CreatedAt: time.Now().UTC(),
 		},
 		ClientID:  util.StringOrNull(string(client.ID)),
 		Token:     uuid.New(),
@@ -136,8 +136,8 @@ func NewOauthRefereshToken(client *OauthClient, user *OauthClient, expiresIn int
 func NewOauthAccessToken(client *OauthClient, user *OauthClient, expiresIn int, scope string) *OauthAccessToken {
 	accessToken := &OauthAccessToken{
 		MyGormModel: MyGormModel{
-			ID:       uuid.New(),
-			CreateAt: time.Now().UTC(),
+			ID:        uuid.New(),
+			CreatedAt: time.Now().UTC(),
 		},
 		ClientID:  util.StringOrNull(string(client.ID)),
 		Token:     uuid.New(),
@@ -154,8 +154,8 @@ func NewOauthAccessToken(client *OauthClient, user *OauthClient, expiresIn int, 
 func NewOauthAuthorizationCode(client *OauthClient, user *OauthClient, expiresIn int, redirectURI, scope string) *OauthAuthorizationCode {
 	return &OauthAuthorizationCode{
 		MyGormModel: MyGormModel{
-			ID:       uuid.New(),
-			CreateAt: time.Now().UTC(),
+			ID:        uuid.New(),
+			CreatedAt: time.Now().UTC(),
 		},
 		ClientID:    util.StringOrNull(string(client.ID)),
 		UserID:      util.StringOrNull(string(user.ID)),
