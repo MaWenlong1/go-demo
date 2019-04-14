@@ -1,8 +1,32 @@
-hash: 1d622fef1efe6f4f3e52eef73afd33259577bcc09ae2aa787f7840adc22fb6e0
-updated: 2019-04-11T23:47:15.294694+08:00
+hash: 3ec04df4fd5c05bc0475065f53ba01e37e8b78d8a851bdafdfa989adce9d9312
+updated: 2019-04-14T13:19:46.484959+08:00
 imports:
+- name: github.com/BurntSushi/toml
+  version: 3012a1dbe2e4bd1391d42b32f0577cb7bbc7f005
+- name: github.com/go-sql-driver/mysql
+  version: 6be42e0ff99645d7d9626d779001a46e39c5f280
+- name: github.com/google/uuid
+  version: 0cd6bf5da1e1c83f8b45653022c74f71af0538a4
+- name: github.com/jinzhu/configor
+  version: 4edaf76fe18865e36de734d887f4c01bd05707af
+- name: github.com/jinzhu/gorm
+  version: 472c70caa40267cb89fd8facb07fe6454b578626
+  subpackages:
+  - dialects/mysql
+- name: github.com/jinzhu/inflection
+  version: 04140366298a54a039076d798123ffa108fff46c
+- name: github.com/pborman/uuid
+  version: 8b1b92947f46224e3b97bb1a3a5b0382be00d31e
 - name: github.com/RichardKnop/logging
   version: b1d5d44c82d6c9fb6c8e8dad28412163586fd8ac
 - name: github.com/urfave/cli
   version: cfb38830724cc34fedffe9a2a29fb54fa9169cd1
+- name: google.golang.org/appengine
+  version: 4a4468ece617fc8205e99368fa2200e9d1fad421
+  repo: https://github.com/golang/appengine
+  vcs: git
+  subpackages:
+  - cloudsql
+- name: gopkg.in/yaml.v2
+  version: 5420a8b6744d3b0345ab293f6fcba19c978f1183
 testImports: []
