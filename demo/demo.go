@@ -34,5 +34,18 @@ func Processor(seq chan int, wait chan struct{}) {
 }
 
 func main() {
-	getPrime(1000)
+	slice := []int{1, 2, 3, 4, 5}
+	new := slice[1:3]
+	new = append(new, 22222)
+	fmt.Println(new)
+	fmt.Println(slice)
+	new = append(new, 33333)
+	fmt.Println(new)
+	fmt.Println(slice)
+	new = append(new, 44444)
+	fmt.Println(new)
+	fmt.Println(slice)
+	new = append(new, 55555)
+	fmt.Println(new)
+	fmt.Println(slice)
 }

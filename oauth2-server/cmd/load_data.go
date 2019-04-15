@@ -1,6 +1,6 @@
 package cmd
 
-import "github.com/RichardKnop/go-fixtures"
+import fixtures "github.com/RichardKnop/go-fixtures"
 
 // LoadData 加载数据
 func LoadData(paths []string, configFile string) error {
