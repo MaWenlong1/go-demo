@@ -8,7 +8,10 @@ import (
 	"log"
 	"mwl/gowiki/config"
 	"net/http"
+	"os"
 	"regexp"
+	"runtime"
+	"strconv"
 )
 
 // Page ..
@@ -100,5 +103,55 @@ func main() {
 	http.HandleFunc("/view/", makeHandle(viewHandle))
 	http.HandleFunc("/edit/", makeHandle(editHandler))
 	http.HandleFunc("/save/", makeHandle(saveHandler))
-	log.Fatal(http.ListenAndServe(":"+configInfo.Port, nil))
+	// log.Fatal(http.ListenAndServe(":"+configInfo.Port, nil))
+	// enum1()
+	test1()
+	// runtime.GOMAXPROCS(NCPU)
+	fmt.Println("cpu:" + strconv.Itoa(runtime.NumCPU()))
+}
+
+var slice []func()
+
+func test1() {
+	sli := []int{1, 2, 3, 4, 5}
+	// v 都是只创建一次，然后循环中赋值。
+	for _, v := range sli {
+		fmt.Println(&v)
+		// v := v //解决方法
+		slice = append(slice, func() {
+			fmt.Println(v * v) // 直接打印结果
+		})
+	}
+
+	for _, val := range slice {
+		val()
+	}
+}
+
+func enum1() {
+	// ByteSize 。。
+	type ByteSize float64
+	const (
+		// 通过赋予空白标识符来忽略第一个值
+		_  ByteSize = iota // ignore first value by assigning to blank identifier
+		KB          = 1 << (10 * iota)
+		MB
+		GB
+		TB
+		PB
+		EB
+		ZB
+		YB
+	)
+	var (
+		home   = os.Getenv("HOME")
+		user   = os.Getenv("USER")
+		gopath = os.Getenv("GOPATH")
+	)
+	fmt.Println(KB)
+	fmt.Println(home, user, gopath)
+	fmt.Println(os.Hostname())
+	fmt.Println(os.Geteuid())
+	fmt.Println(os.Getgid())
+	fmt.Println(os.Getpid())
 }
