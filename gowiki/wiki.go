@@ -108,6 +108,19 @@ func main() {
 	test1()
 	// runtime.GOMAXPROCS(NCPU)
 	fmt.Println("cpu:" + strconv.Itoa(runtime.NumCPU()))
+	// 从无缓冲信道进行的接收，要发生在对该信道进行的发送完成之前。
+	go f()
+	c <- 0
+	print(a)
+
+}
+
+var c = make(chan int)
+var a string
+
+func f() {
+	a = "hello, world"
+	<-c
 }
 
 var slice []func()
