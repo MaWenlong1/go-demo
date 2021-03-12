@@ -21,15 +21,18 @@ func main() {
 	isClick := false
 	// 是否结束点击
 	isEnd := false
-	registerFunc("q", func(e hook.Event) {
+	registerFunc([]string{"q", "ctrl"}, func(e hook.Event) {
 		fmt.Println("\n退出！")
 		hook.End()
 	})
-	registerFunc("w", func(e hook.Event) {
+	registerFunc([]string{"w"}, func(e hook.Event) {
+		if isClick {
+			isClick = false
+			isEnd = true
+			fmt.Println("\n连点结束！")
+			return
+		}
 		go func() {
-			if isClick {
-				return
-			}
 			fmt.Println("\n连点开始！")
 			isClick = true
 			isEnd = false
@@ -41,18 +44,11 @@ func main() {
 			isEnd = true
 		}()
 	})
-	registerFunc("e", func(e hook.Event) {
-		if !isClick {
-			return
-		}
-		fmt.Println("\n连点结束！")
-		isClick = false
-		isEnd = true
-	})
+
 	s := hook.Start()
 	<-hook.Process(s)
 }
 
-func registerFunc(key string, f func(hook.Event)) {
-	hook.Register(hook.KeyDown, []string{key}, f)
+func registerFunc(keys []string, f func(hook.Event)) {
+	hook.Register(hook.KeyDown, keys, f)
 }
